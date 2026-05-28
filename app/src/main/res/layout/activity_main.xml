@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GitHub Configuration"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:paddingBottom="16dp" />
+
+        <EditText android:id="@+id/edit_username" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="GitHub Username" android:inputType="text" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/edit_email" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="GitHub Email" android:inputType="textEmailAddress" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/edit_token" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Personal Access Token" android:inputType="textPassword" android:layout_marginBottom="16dp"/>
+        
+        <Button android:id="@+id/btn_save" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="บันทึกข้อมูล" />
+        
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#E0E0E0" android:layout_marginVertical="24dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="เลือกโปรเจกต์ที่จะ Push:" android:layout_marginBottom="8dp" />
+        <Spinner android:id="@+id/spinner_projects" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24dp" android:minHeight="48dp" />
+
+        <Button android:id="@+id/btn_push" android:layout_width="match_parent" android:layout_height="60dp" android:text="PUSH TO GITHUB" android:backgroundTint="#4CAF50" android:textColor="#FFFFFF" android:textStyle="bold" />
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status Logs:"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp"
+            android:textStyle="bold" />
+
+        <TextView android:id="@+id/text_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="สถานะ: พร้อมใช้งาน" android:textColor="#555555" android:background="#F5F5F5" android:padding="12dp" />
+    </LinearLayout>
+</ScrollView>
