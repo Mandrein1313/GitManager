@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edit_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ระบุ Path ของโปรเจกต์ (เช่น /sdcard/MyProject)"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edit_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="ข้อความ Commit"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btn_push"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="PUSH TO GITHUB" />
+
+    <TextView
+        android:id="@+id/text_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="สถานะ: รอการทำงาน..."
+        android:textSize="14sp"
+        android:textColor="#555555" />
+
+</LinearLayout>
