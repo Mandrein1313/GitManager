@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp">
+
+    <EditText android:id="@+id/edit_username" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="GitHub Username" />
+    <EditText android:id="@+id/edit_email" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="GitHub Email" />
+    <EditText android:id="@+id/edit_token" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Personal Access Token" />
+    <Button android:id="@+id/btn_save" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="บันทึกข้อมูล" />
+    
+    <View android:layout_width="match_parent" android:layout_height="2dp" android:background="#000" android:layout_margin="10dp"/>
+
+    <EditText android:id="@+id/edit_path" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Path ของโปรเจกต์" />
+    <EditText android:id="@+id/edit_message" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="ข้อความ Commit" />
+    <Button android:id="@+id/btn_push" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PUSH TO GITHUB" />
+    <TextView android:id="@+id/text_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="สถานะ: พร้อม" />
+</LinearLayout>
