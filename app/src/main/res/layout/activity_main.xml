@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ตั้งค่า GitHub"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <EditText 
+        android:id="@+id/edit_username" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:hint="GitHub Username" 
+        android:inputType="text" />
+    
+    <EditText 
+        android:id="@+id/edit_email" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:hint="GitHub Email" 
+        android:inputType="textEmailAddress" />
+    
+    <EditText 
+        android:id="@+id/edit_token" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:hint="Personal Access Token" 
+        android:inputType="textPassword" />
+    
+    <Button 
+        android:id="@+id/btn_save" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:text="บันทึกข้อมูล" />
+    
+    <View 
+        android:layout_width="match_parent" 
+        android:layout_height="1dp" 
+        android:background="#CCCCCC" 
+        android:layout_marginVertical="16dp"/>
+
+    <Button 
+        android:id="@+id/btn_select_folder" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:text="เลือกโฟลเดอร์โปรเจกต์" />
+
+    <EditText 
+        android:id="@+id/edit_path" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:hint="Path ของโปรเจกต์ที่เลือก" 
+        android:focusable="false" />
+
+    <Button 
+        android:id="@+id/btn_push" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:text="PUSH TO GITHUB" 
+        android:backgroundTint="#4CAF50" 
+        android:layout_marginTop="8dp" />
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp">
+        <TextView 
+            android:id="@+id/text_status" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="สถานะ: พร้อมใช้งาน" 
+            android:textColor="#333333" />
+    </ScrollView>
+</LinearLayout>
