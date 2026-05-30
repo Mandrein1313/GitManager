@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/MiniStudio/GitManager/app/src/main/res/layout/activity_main.xml",
+      "selection": {
+        "end": {
+          "column": 3,
+          "index": 473,
+          "line": 14
+        },
+        "start": {
+          "column": 3,
+          "index": 473,
+          "line": 14
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/MiniStudio/GitManager/app/src/main/res/layout/activity_main.xml"
+}
