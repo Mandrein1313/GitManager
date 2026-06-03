@@ -1,6 +1,6 @@
 package com.example.gitmanager;
-<<<<<<<<<<
-import android.app.Activity;ถย    
+
+import android.app.Activity;   
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
