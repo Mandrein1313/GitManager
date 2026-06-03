@@ -1,83 +1,38 @@
-package com.example.gitmanager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import android.app.Activity;   
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.Settings;
-import android.widget.*;
-import java.io.File;
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.TextView;
 
-public class MainActivity extends Activity implements BuildTaskManager.BuildListener {
+public class MainActivity extends AppCompatActivity {
 
-    private EditText etUser, etEmail, etToken;
-    private TextView tvStatus;
-    private Spinner spinnerProjects;
-    private String rootPath;
+    private Toolbar toolbar;
+    private TextView txtHead, txtContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 1. ขอสิทธิ์จัดการไฟล์ทั้งหมด
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
-            startActivity(new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, Uri.parse("package:" + getPackageName())));
-        }
+        // แทน toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        // 2. กำหนด Path อยู่หน้าหลักของเครื่อง
-        rootPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/GitProjects";
-        new File(rootPath).mkdirs();
+        // หา id ของ textview
+        txtHead = findViewById(R.id.txtHead);
+        txtContent = findViewById(R.id.txtContent);
 
-        // 3. เชื่อมต่อ UI
-        etUser = findViewById(R.id.edit_username);
-        etEmail = findViewById(R.id.edit_email);
-        etToken = findViewById(R.id.edit_token);
-        tvStatus = findViewById(R.id.text_status);
-        spinnerProjects = findViewById(R.id.spinner_projects);
+        // ตัวอย่างการเปลี่ยนข้อความ
+        txtHead.setText("หัวข้อใหม่");
+        txtContent.setText("เนื้อหาข้อมูลใหม่");
 
-        loadPreferences();
-
-        findViewById(R.id.btn_save).setOnClickListener(v -> {
-            getSharedPreferences("GitHubPrefs", MODE_PRIVATE).edit()
-                    .putString("username", etUser.getText().toString())
-                    .putString("email", etEmail.getText().toString())
-                    .putString("token", etToken.getText().toString()).apply();
-            Toast.makeText(this, "บันทึกแล้ว", Toast.LENGTH_SHORT).show();
-            loadProjectList();
-        });
-
-        findViewById(R.id.btn_push).setOnClickListener(v -> {
-            if (spinnerProjects.getSelectedItem() == null) {
-                Toast.makeText(this, "กรุณาสร้างหรือย้ายโปรเจกต์เข้าโฟลเดอร์ GitProjects", Toast.LENGTH_SHORT).show();
-                return;
+        // ตัวอย่างการแสดงข้อความเมื่อมีการคลิกที่ toolbar
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // โค้ดที่จะทำเมื่อมีการคลิกที่ toolbar
             }
-            new BuildTaskManager(this, rootPath + "/" + spinnerProjects.getSelectedItem().toString(), this).executePush();
         });
-
-        loadProjectList();
     }
-
-    private void loadProjectList() {
-        File[] files = new File(rootPath).listFiles(File::isDirectory);
-        ArrayList<String> names = new ArrayList<>();
-        if (files != null) for (File f : files) names.add(f.getName());
-        spinnerProjects.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, names));
-    }
-
-    private void loadPreferences() {
-        SharedPreferences pref = getSharedPreferences("GitHubPrefs", MODE_PRIVATE);
-        etUser.setText(pref.getString("username", ""));
-        etEmail.setText(pref.getString("email", ""));
-        etToken.setText(pref.getString("token", ""));
-    }
-
-    @Override
-    public void onLogAppend(String text, int color) { runOnUiThread(() -> tvStatus.append("\n" + text)); }
-    @Override
-    public void onFinished(boolean success) { runOnUiThread(() -> Toast.makeText(this, success ? "เสร็จสิ้น" : "ล้มเหลว", Toast.LENGTH_SHORT).show()); }
 }
